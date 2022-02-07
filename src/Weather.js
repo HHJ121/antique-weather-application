@@ -3,14 +3,30 @@ import axios from "axios";
 import Typewriter from "typewriter-effect";
 
 import "./Weather.css";
+import WeatherInfo from "./WeatherInfo";
+import WelcomeHeader from "./WelcomeHeader";
 
-export default function Weather() {
-  const [city, setCity] = useState("");
-  const [searchloaded, setSearchLoaded] = useState(false);
-  const [weatherOverview, setWeatherOverview] = useState("");
+export default function Weather(props) {
+  const [city, setCity] = useState(props.defaultCity);
+  const [weatherOverview, setWeatherOverview] = useState({searchLoaded: false});
 
   function displayWeatherOverview(response) {
-    setSearchLoaded(true);
+    console.log(response);
+    setWeatherOverview({
+      searchLoaded: true,
+      coordinations: response.data.coord,
+      dateTime: response.data.dt * 1000,
+      currentTemp: Math.round(response.data.main.temp),
+      currentMaxTemp: Math.round(response.data.main.temp_max),
+      currentMinTemp: Math.round(response.data.main.temp_min),
+      feelLikeTemp: Math.round(response.data.main.feels_like),
+      cityName: response.data.name,
+      description: response.data.weather[0].description,
+      weatherIcon: response.data.weather[0].icon,
+      windSpeed: Math.round(response.data.wind.speed),
+      humidity: response.data.main.humidity,
+      country: response.data.sys.country,
+    });
   }
 
   function search(city) {
@@ -22,30 +38,18 @@ export default function Weather() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    search();
+    search(city);
   }
 
   function updateCity(event) {
-    event.preventDefault();
     setCity(event.target.value);
   }
 
-  if (searchloaded) {
+  if (weatherOverview.searchLoaded) {
     return (
       <div className="Weather">
-        <Typewriter
-          options={{
-            strings: [
-              "Hello.",
-              "Welcome to my weather app.",
-              "Where would you like to look up the weather?",
-            ],
-            autoStart: true,
-            loop: true,
-            pauseFor: 1800,
-          }}
-        />
-        <form className="search-form">
+        <WelcomeHeader data={weatherOverview} />
+        <form className="search-form" onSubmit={handleSubmit}>
           <input
             type="search"
             placeholder="Enter a city"
@@ -53,12 +57,13 @@ export default function Weather() {
             autoFocus="on"
             onChange={updateCity}
           />
-          <input type="submit" value="🔍" onSubmit={handleSubmit} />
+          <input type="submit" value="🔍" />
         </form>
+        <WeatherInfo data={weatherOverview} />
       </div>
     );
   } else {
-    search();
+    search(city);
     return (
       <div className="Weather">
         <Typewriter
