@@ -5,7 +5,7 @@ export default function WelcomeHeader(props) {
   let currentTime = new Date(props.data.dateTime);
 
   function getCurrentHour() {
-    let hour = currentTime.getHours();
+    let hour = currentTime.getUTCHours();
 
     return `${hour}`;
   }
@@ -18,7 +18,7 @@ export default function WelcomeHeader(props) {
             strings: [
               "Good Morning.",
               "Welcome to my weather app.",
-              "Check the weather of a city below.",
+              "You may check the weather of a city below.",
             ],
             autoStart: true,
             loop: true,
@@ -53,7 +53,7 @@ export default function WelcomeHeader(props) {
               strings: [
                 "Good Evening.",
                 "Welcome to my weather app.",
-                "Look up the weather of a city below.",
+                "You may look up the weather of a city below.",
               ],
               autoStart: true,
               loop: true,

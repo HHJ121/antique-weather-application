@@ -8,7 +8,9 @@ import WelcomeHeader from "./WelcomeHeader";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
-  const [weatherOverview, setWeatherOverview] = useState({searchLoaded: false});
+  const [weatherOverview, setWeatherOverview] = useState({
+    searchLoaded: false,
+  });
 
   function displayWeatherOverview(response) {
     console.log(response);
