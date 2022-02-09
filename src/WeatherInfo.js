@@ -41,6 +41,7 @@ export default function WeatherInfo(props) {
     let currentDate = new Date(props.data.dateTime);
     let hour = currentDate.getHours();
     let minutes = currentDate.getMinutes();
+   let currentDateTime = Date().toLocaleString();
    
 
     if (hour < 10) {
@@ -51,7 +52,7 @@ export default function WeatherInfo(props) {
       minutes = `0${minutes}`;
     }
 
-    return `${hour} : ${minutes}`;
+    return `${hour} : ${minutes} ${currentDateTime}`;
   }
 
   return (

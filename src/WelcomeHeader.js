@@ -5,12 +5,13 @@ export default function WelcomeHeader(props) {
   let currentTime = new Date(props.data.dateTime);
 
   function getCurrentHour() {
-    let hour = currentTime.getUTCHours();
-
+    let hour = currentTime.getHours();
+console.log(hour);
     return `${hour}`;
+    
   }
 
-  if (getCurrentHour() === 0 && getCurrentHour() < 12) {
+  if (getCurrentHour() === 0 || getCurrentHour() < 12) {
     return (
       <div className="WelcomeHeader">
         <Typewriter
@@ -28,7 +29,7 @@ export default function WelcomeHeader(props) {
       </div>
     );
   } else {
-    if (getCurrentHour() > 12 && getCurrentHour() < 17) {
+    if (getCurrentHour() > 12 || getCurrentHour() < 17) {
       return (
         <div className="WelcomeHeader">
           <Typewriter
