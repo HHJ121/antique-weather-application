@@ -6,7 +6,7 @@ export default function WelcomeHeader(props) {
 
   function getCurrentHour() {
     let hour = currentTime.getHours();
-console.log(hour);
+
     return `${hour}`;
     
   }
@@ -17,9 +17,9 @@ console.log(hour);
         <Typewriter
           options={{
             strings: [
-              "Good Morning.",
-              "Welcome to my weather app.",
-              "You may check the weather of a city below.",
+              "Good Morning .",
+              "Welcome to my weather app !",
+              "You may check the weather of any city below .",
             ],
             autoStart: true,
             loop: true,
@@ -29,15 +29,15 @@ console.log(hour);
       </div>
     );
   } else {
-    if (getCurrentHour() > 12 || getCurrentHour() < 17) {
+    if (getCurrentHour() > 12 && getCurrentHour() < 17) {
       return (
         <div className="WelcomeHeader">
           <Typewriter
             options={{
               strings: [
-                "Good Afternoon.",
-                "Welcome to my weather app.",
-                "Where would you like to look up the weather?",
+                "Good Afternoon .",
+                "Come try out my weather app !",
+                "You may look up the weather of any city below .",
               ],
               autoStart: true,
               loop: true,
@@ -52,9 +52,9 @@ console.log(hour);
           <Typewriter
             options={{
               strings: [
-                "Good Evening.",
-                "Welcome to my weather app.",
-                "You may look up the weather of a city below.",
+                "Good Evening .",
+                "Want to try out my weather app ?",
+                "Enter any city below to begin .",
               ],
               autoStart: true,
               loop: true,

@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   font-family: "Special Elite", cursive;
-  color: rgb(248, 211, 166);
+  color: rgb(255, 220, 177);
 }
 
 .App-background {
@@ -9,6 +9,7 @@
   margin: 20px auto;
   max-width: 500px;
   border-radius: 7px;
+  
 }
 
 .App-main {

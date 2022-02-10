@@ -1,0 +1,22 @@
+.WeatherTempUnit .weatherIcon {
+    font-size: 42px;
+}
+
+
+.WeatherTempUnit .current-temp {
+    font-size: 42px;
+}
+
+.WeatherTempUnit .temp-units {
+    font-size: 18px;
+}
+
+.WeatherTempUnit .description {
+    margin: 0px 0px 25px;
+    font-size: 15px;
+}
+
+.WeatherTempUnit .bi-thermometer-half {
+   font-size: 17px;
+}
+

@@ -41,8 +41,7 @@ export default function WeatherInfo(props) {
     let currentDate = new Date(props.data.dateTime);
     let hour = currentDate.getHours();
     let minutes = currentDate.getMinutes();
-   let currentDateTime = Date().toLocaleString();
-   
+    let currentDateTime = Date().toLocaleString();
 
     if (hour < 10) {
       hour = `0${hour}`;
@@ -58,18 +57,19 @@ export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <h1 className="city">
-        {props.data.cityName}, {props.data.country}
+        {props.data.cityName} , {props.data.country}
       </h1>
       <div className="date">{showFullDate()}</div>
       <div className="time">Updated at {showTime()}</div>
-      <div className="temperature">
-        <span className="weatherIcon">🌧</span>{" "}
-        <span className="current-temp">
-          <WeatherTempUnit celsius={props.data.currentTemp} />
-        </span>
+      <div className="weather-details">
+        <WeatherTempUnit celsius={props.data.currentTemp} data={props.data} />
         <ul>
-          <li>Wind: {props.data.windSpeed} km/hr</li>
-          <li>Humidity: {props.data.humidity} %</li>
+          <li>
+            <i class="bi bi-wind"></i> Wind: {props.data.windSpeed} km/hr
+          </li>
+          <li>
+            <i class="bi bi-droplet-half"></i> Humidity: {props.data.humidity} %
+          </li>
         </ul>
       </div>
     </div>
