@@ -62,13 +62,14 @@ export default function WeatherInfo(props) {
       <div className="date">{showFullDate()}</div>
       <div className="time">Updated at {showTime()}</div>
       <div className="weather-details">
-        <WeatherTempUnit celsius={props.data.currentTemp} data={props.data} />
+        
+        <WeatherTempUnit data={props.data} />
         <ul>
           <li>
-            <i class="bi bi-wind"></i> Wind: {props.data.windSpeed} km/hr
+            <i className="bi bi-wind"></i> Wind: {props.data.windSpeed} km/hr
           </li>
           <li>
-            <i class="bi bi-droplet-half"></i> Humidity: {props.data.humidity} %
+            <i className="bi bi-droplet-half"></i> Humidity: {props.data.humidity} %
           </li>
         </ul>
       </div>

@@ -19,7 +19,7 @@ export default function WelcomeHeader(props) {
             strings: [
               "Good Morning .",
               "Welcome to my weather app !",
-              "You may check the weather of any city below .",
+              "Check the weather of any city below .",
             ],
             autoStart: true,
             loop: true,
@@ -37,7 +37,7 @@ export default function WelcomeHeader(props) {
               strings: [
                 "Good Afternoon .",
                 "Come try out my weather app !",
-                "You may look up the weather of any city below .",
+                "Look up the weather of any city below .",
               ],
               autoStart: true,
               loop: true,
