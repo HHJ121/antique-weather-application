@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "./WeatherTempUnit.css";
 import AnimatedWeatherIcon from "./AnimatedWeatherIcon";
+import WeatherForecast from "./WeatherForecast";
 
 export default function WeatherTempUnit(props) {
   let [unit, setUnit] = useState("celsius");
@@ -24,8 +25,8 @@ export default function WeatherTempUnit(props) {
         {" "}
         <span className="weatherIcon">
           <AnimatedWeatherIcon iconCode={props.data.weatherIcon} size={43} />
-        </span> {" "}
-        <span className="current-temp">{props.data.currentTemp}</span>
+        </span>{" "}
+        <span className="current-temp">{props.data.currentTemp}</span>{" "}
         <span className="temp-units">
           °C |{" "}
           <a href="/" onClick={displayFahrenheitTemp}>
@@ -38,7 +39,18 @@ export default function WeatherTempUnit(props) {
         <div className="feel-like-temp">
           <i className="bi bi-thermometer-half"></i>Feel like:{" "}
           {props.data.feelLikeTemp} °C
+          <ul>
+            <li>
+              <i className="bi bi-wind"></i> Wind: {props.data.windSpeed} km/hr
+            </li>
+            <li>
+              <i className="bi bi-droplet-half"></i> Humidity:{" "}
+              {props.data.humidity} %
+            </li>
+          </ul>
         </div>
+        <hr />
+        <WeatherForecast coordinates={props.data.coordinates} />
       </div>
     );
   } else {
@@ -63,6 +75,15 @@ export default function WeatherTempUnit(props) {
         <div className="feel-like-temp">
           <i className="bi bi-thermometer-half"></i>Feel like:{" "}
           {Math.round(props.data.feelLikeTemp * 1.8) + 32} °F
+          <ul>
+            <li>
+              <i className="bi bi-wind"></i> Wind: {props.data.windSpeed} km/hr
+            </li>
+            <li>
+              <i className="bi bi-droplet-half"></i> Humidity:{" "}
+              {props.data.humidity} %
+            </li>
+          </ul>
         </div>
       </div>
     );

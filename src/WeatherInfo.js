@@ -64,14 +64,7 @@ export default function WeatherInfo(props) {
       <div className="weather-details">
         
         <WeatherTempUnit data={props.data} />
-        <ul>
-          <li>
-            <i className="bi bi-wind"></i> Wind: {props.data.windSpeed} km/hr
-          </li>
-          <li>
-            <i className="bi bi-droplet-half"></i> Humidity: {props.data.humidity} %
-          </li>
-        </ul>
+       
       </div>
     </div>
   );
