@@ -16,7 +16,7 @@ export default function Weather(props) {
     console.log(response);
     setWeatherOverview({
       searchLoaded: true,
-      coordinations: response.data.coord,
+      coordinates: response.data.coord,
       dateTime: response.data.dt * 1000,
       currentTemp: Math.round(response.data.main.temp),
       currentMaxTemp: Math.round(response.data.main.temp_max),

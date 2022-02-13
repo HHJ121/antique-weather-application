@@ -6,22 +6,24 @@ export default function WeatherForecast(props) {
   let [forecastLoaded, setForecastLoaded] = useState(false);
   let [forecastData, setForecastData] = useState(" ");
 
-  useEffect(() => {
-    setForecastLoaded(false);
-  }, [props.coordinates]);
-
-  function loadForecast() {
-    let apiKey = "c0d5182ce71bc2be9c80f43da3c8ee07";
-    let lon = props.coordinates.lon;
-    let lat = props.coordinates.lat;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-
-    axios.get(apiUrl).then(showWeatherForecastData);
-  }
-
   function showWeatherForecastData(response) {
     setForecastData(response.data.daily);
     setForecastLoaded(true);
+    console.log(response);
+  }
+  
+   useEffect(() => {
+    setForecastLoaded(false);
+  }, [props.coordinates]);
+  
+  function loadForecast() {
+    let lon = props.coordinates.lon;
+    let lat = props.coordinates.lat;
+    let apiKey = "c0d5182ce71bc2be9c80f43da3c8ee07";
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(showWeatherForecastData);
   }
 
   if (forecastLoaded) {
@@ -47,7 +49,7 @@ export default function WeatherForecast(props) {
 
                       let day = days[forecastDay.getDay()];
 
-                      return `${day}`;
+                      return`${day}`;
                     }}
                   </div>
                   <div className="col forecast-weather-icon">
