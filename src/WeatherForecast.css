@@ -1,0 +1,11 @@
+.WeatherForecast .row {
+    margin: 5px;
+}
+
+.WeatherForecast .min-temp {
+    opacity: 0.8;
+}
+
+.WeatherForecast .max-temp {
+    font-weight: bold;
+}

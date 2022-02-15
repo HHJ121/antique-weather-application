@@ -7,13 +7,13 @@
 .App-background {
   background-image: url("https://images.unsplash.com/photo-1600181982553-ce7d36051c01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZhttps://images.unsplash.com/photo-1600181982553-ce7d36051c01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80WFyY2h8NHx8YW50aXF1ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60");
   margin: 20px auto;
-  max-width: 430px;
+  max-width: 400px;
   border-radius: 7px;
   
 }
 
 .App-main {
- padding: 25px;
+ padding: 18px 0px 5px;
 }
 
 .App footer {

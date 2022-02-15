@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./WeatherInfo.css";
 import AnimatedWeatherIcon from "./AnimatedWeatherIcon";
 import WeatherForecast from "./WeatherForecast";
+import WeatherForecastFahrenheit from "./WeatherForecastFahrenheit";
 
 export default function WeatherInfo(props) {
   let [unit, setUnit] = useState("celsius");
@@ -83,7 +84,7 @@ export default function WeatherInfo(props) {
           </span>{" "}
           <span className="current-temp">{props.data.currentTemp}</span>{" "}
           <span className="temp-units">
-            °C |{" "}
+            °C ||{" "}
             <a href="/" onClick={displayFahrenheitTemp}>
               °F
             </a>
@@ -130,7 +131,7 @@ export default function WeatherInfo(props) {
             <a href="/" onClick={displayCelsiusTemp}>
               °C
             </a>{" "}
-            | °F
+            || °F
           </span>
           <div className="description">
             <em>"{props.data.description}"</em>
@@ -149,6 +150,8 @@ export default function WeatherInfo(props) {
               </li>
             </ul>
           </div>
+          <hr />
+          <WeatherForecastFahrenheit coordinates={props.data.coordinates} />
         </div>
       </div>
     );
