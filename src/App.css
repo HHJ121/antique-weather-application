@@ -6,19 +6,20 @@
 
 .App-background {
   background-image: url("https://images.unsplash.com/photo-1600181982553-ce7d36051c01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZhttps://images.unsplash.com/photo-1600181982553-ce7d36051c01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80WFyY2h8NHx8YW50aXF1ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60");
-  margin: 20px auto;
-  max-width: 400px;
-  border-radius: 7px;
+  margin: 15px auto;
+  max-width: 390px;
+  border-radius: 9px;
   
 }
 
 .App-main {
- padding: 18px 0px 5px;
+ padding: 15px 0px 5px;
 }
 
 .App footer {
   font-size: 12px;
   color: rgb(248, 140, 9);
+  margin-bottom: 5px;
 
 }
 

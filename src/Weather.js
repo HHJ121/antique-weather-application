@@ -17,7 +17,7 @@ export default function Weather(props) {
     setWeatherOverview({
       searchLoaded: true,
       coordinates: response.data.coord,
-      dateTime: response.data.dt * 1000,
+      dateTime: response.data.dt,
       currentTemp: Math.round(response.data.main.temp),
       currentMaxTemp: Math.round(response.data.main.temp_max),
       currentMinTemp: Math.round(response.data.main.temp_min),
@@ -28,6 +28,7 @@ export default function Weather(props) {
       windSpeed: Math.round(response.data.wind.speed),
       humidity: response.data.main.humidity,
       country: response.data.sys.country,
+      timeZoneOffset: response.data.timezone,
     });
   }
 

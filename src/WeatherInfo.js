@@ -8,6 +8,9 @@ import WeatherForecastFahrenheit from "./WeatherForecastFahrenheit";
 export default function WeatherInfo(props) {
   let [unit, setUnit] = useState("celsius");
 
+  let currentDateTime = new Date();
+  let timeZone = currentDateTime.getTimezoneOffset() * 60;
+
   function displayFahrenheitTemp(event) {
     event.preventDefault();
 
@@ -21,7 +24,10 @@ export default function WeatherInfo(props) {
   }
 
   function showFullDate(time) {
-    let currentDate = new Date(props.data.dateTime);
+    let currentDate = new Date(
+      (props.data.dateTime + props.data.timeZoneOffset + timeZone) * 1000
+    );
+    
     let days = [
       "Sunday",
       "Monday",
@@ -54,10 +60,11 @@ export default function WeatherInfo(props) {
   }
 
   function showTime(time) {
-    let currentDate = new Date(props.data.dateTime);
+    let currentDate = new Date(
+      (props.data.dateTime + props.data.timeZoneOffset + timeZone) * 1000
+    );
     let hour = currentDate.getHours();
     let minutes = currentDate.getMinutes();
-    let currentDateTime = Date().toLocaleString();
 
     if (hour < 10) {
       hour = `0${hour}`;
@@ -67,7 +74,7 @@ export default function WeatherInfo(props) {
       minutes = `0${minutes}`;
     }
 
-    return `${hour} : ${minutes} ${currentDateTime}`;
+    return `${hour} : ${minutes}`;
   }
 
   if (unit === "celsius") {
