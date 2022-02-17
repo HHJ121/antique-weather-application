@@ -2,14 +2,12 @@ import React from "react";
 import Typewriter from "typewriter-effect";
 
 export default function WelcomeHeader(props) {
-  
   let currentTime = new Date(props.data.dateTime * 1000);
 
   function getCurrentHour() {
     let hour = currentTime.getHours();
 
     return `${hour}`;
-    
   }
 
   if (getCurrentHour() === 0 || getCurrentHour() < 12) {
